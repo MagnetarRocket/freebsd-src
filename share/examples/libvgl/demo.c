@@ -56,13 +56,15 @@ main(int argc, char **argv)
   ysize=VGLDisplay->Ysize;
 
   // alloc a new bitmap
-  tmp = VGLBitmapCreate(MEMBUF, 256, 256, NULL);
+  tmp = VGLBitmapCreate(MEMBUF, 256, 256, 256);
   VGLBitmapAllocateBits(tmp);
   VGLClear(tmp, 0);
 
   // fill the screen with colored lines
   for (y=0; y<ysize; y++)
+  {
     VGLLine(VGLDisplay, 0, y, xsize-1, y, y/2 % 256);
+  }
 
   // draw some lines and circles just to show off
   VGLLine(VGLDisplay, 0, 0, xsize-1, ysize-1, 63);
@@ -88,12 +90,20 @@ main(int argc, char **argv)
 
   // now show some simple bitblit
   for (i=0; i<256; i++)
+  {
     for (j=0; j<256; j++)
+    {
       tmp->Bitmap[i+256*j] = i%16;
+    }
+  }
   VGLBitmapCopy(tmp, 0, 0, VGLDisplay, 0, 0, 128, 128);
   for (i=0; i<256; i++)
+  {
     for (j=0; j<256; j++)
+    {
       tmp->Bitmap[i+256*j] = j%16;
+    }
+  }
   VGLBitmapCopy(tmp, 0, 0, VGLDisplay, 3, 128, 128, 128);
   sleep(2);
   VGLBitmapCopy(VGLDisplay, 237, 311, tmp, 64, 64, 128, 128);
