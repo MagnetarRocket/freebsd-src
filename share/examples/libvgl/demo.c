@@ -56,7 +56,7 @@ main(int argc, char **argv)
   ysize=VGLDisplay->Ysize;
 
   // alloc a new bitmap
-  tmp = VGLBitmapCreate(MEMBUF, 256, 256, 256);
+  tmp = VGLBitmapCreate(MEMBUF, 256, 256, 128);
   VGLBitmapAllocateBits(tmp);
   VGLClear(tmp, 0);
 
