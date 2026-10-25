@@ -104,7 +104,7 @@ main(int argc, char **argv)
   i=0;
 
   // loop around drawing and copying
-  while (++i) {
+  do{
     VGLBitmapCopy(VGLDisplay, rand()%xsize, rand()%ysize,
                   VGLDisplay, rand()%xsize, rand()%ysize,
                   rand()%xsize, rand()%ysize);
@@ -113,8 +113,8 @@ main(int argc, char **argv)
     VGLEllipse(VGLDisplay, rand()%xsize, rand()%ysize,
                rand()%xsize/2, rand()%ysize/2, rand()%256);
     rand();
-    if (i > 1000) break;
-  }
+    i++;
+  } while (i < 1000);
 
   // restore screen to its original mode
   VGLEnd();
