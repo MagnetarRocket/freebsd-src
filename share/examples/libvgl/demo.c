@@ -44,7 +44,7 @@ main(int argc, char **argv)
   // supported modes are (from <sys/consio.h>):
   // SW_VGA_CG320:      std VGA 320x200 256 colors
   // SW_VGA_MODEX:      Modex VGA 320x240 256 colors
-  // SW_VGA_VG640:      std VGA 640x480 16 colors
+  // SW_VGA_:      std VGA 640x480 16 colors
   
   
   if(VGLInit(SW_VGA_MODEX) < 0)
