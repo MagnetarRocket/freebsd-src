@@ -45,7 +45,12 @@ main(int argc, char **argv)
   // SW_VGA_CG320:      std VGA 320x200 256 colors
   // SW_VGA_MODEX:      Modex VGA 320x240 256 colors
   // SW_VGA_VG640:      std VGA 640x480 16 colors
-  VGLInit(SW_VGA_MODEX);
+  
+  
+  if(VGLInit(SW_VGA_MODEX) < 0)
+    {
+      return 1;
+    }
 
   // initialize mouse and show pointer
   VGLMouseInit(VGL_MOUSESHOW);
@@ -56,7 +61,7 @@ main(int argc, char **argv)
   ysize=VGLDisplay->Ysize;
 
   // alloc a new bitmap
-  tmp = VGLBitmapCreate(MEMBUF, 256, 256, a);
+  tmp = VGLBitmapCreate(MEMBUF, 256, 256, NULL);
   VGLBitmapAllocateBits(tmp);
   VGLClear(tmp, 0);
 
